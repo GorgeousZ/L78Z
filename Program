@@ -1,0 +1,76 @@
+using System;
+
+namespace Caculator
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            for (int i = 0; i < 1000; i++)
+            {
+                string s = Console.ReadLine();
+                STR str = new STR();
+
+                if (s.Contains("+"))
+                {
+                    Console.WriteLine(str.StrAdd(s));
+             
+                }
+                if (s.Contains("*"))
+                {
+                    Console.WriteLine(str.StrMul(s));
+             
+                }
+                if (s.Contains("-"))
+                {
+                    Console.WriteLine(str.StrSub(s));
+                 
+                }
+                if (s.Contains("/"))
+                {
+                    Console.WriteLine(str.StrDiv(s));
+                   
+                }
+            }
+        }
+    }
+    class STR
+    {
+        public int StrAdd(string x)
+        {
+            int index = x.IndexOf("+");
+            string str1 = x.Substring(0, index);
+            string str2 = x.Substring(x.Length - index);
+            int a = int.Parse(str1);
+            int b = int.Parse(str2);
+            return a + b;
+        }
+        public int StrMul(string x)
+        {
+            int index = x.IndexOf("*");
+            string str1 = x.Substring(0, index);
+            string str2 = x.Substring(x.Length - index);
+            int a = int.Parse(str1);
+            int b = int.Parse(str2);
+            return a * b;
+        }
+        public int StrSub(string x)
+        {
+            int index = x.IndexOf("-");
+            string str1 = x.Substring(0, index);
+            string str2 = x.Substring(x.Length - index);
+            int a = int.Parse(str1);
+            int b = int.Parse(str2);
+            return a - b;
+        }
+        public int StrDiv(string x)
+        {
+            int index = x.IndexOf("/");
+            string str1 = x.Substring(0, index);
+            string str2 = x.Substring(x.Length - index);
+            int a = int.Parse(str1);
+            int b = int.Parse(str2);
+            return a / b;
+        }
+    }
+}
